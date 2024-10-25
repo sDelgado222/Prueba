@@ -1,0 +1,61 @@
+/*DDL*/
+/*CREAR UNA BASE DE DATOS*/
+create database Prueba2;
+
+/*CAMBIAR NOMBRE*/
+alter database Prueba2 modify name = Ejemplo;
+
+/*BORRAR BASE DATOS*/
+drop database Ejemplo;
+
+
+/*TIPOS DE DATOS*/
+/*
+char -- almacena tipo de dato alfanumerico ancho fijo
+varchar -- almacena tipo dato alfanumerico de ancho variable
+text -- almacena tipos de datos texto
+bit -- almacena valores de 1 y 0
+int -- almacena valores entre  -2,147,483,648 hasta 2,147,483,648
+bigint  --almacena valores entre -9 billones hasta 9 billones
+smallint --almacena valores entre -32,768 hasta 32,767
+decimal -- alamacena valores entre -10**38+1 hasta 10**38-1
+money --almacena valores entre -9 billones a 9 billones
+float -- almacena valores entre -1.79e+308 hasta 1.79e+308 
+numeric
+*/
+
+/*DML*/
+/*CREAR TABLA*/
+create table Empleados(
+id_Empleado int PRIMARY KEY,
+nombre varchar(20),
+apellido varchar(30),
+edad numeric(2),
+telefono numeric(8),
+direccion varchar(100)
+
+);
+
+create table Pagos(
+id_pago int PRIMARY KEY,
+pago int,
+CONSTRAINT fk_Empleado FOREIGN KEY (id_Empleado) REFERENCES Empleados (id_Empleado)
+);
+
+
+
+/*Consultar Datos*/
+select * from Empleados;
+
+/*Insertar datos*/
+insert into Empleados values(
+3,'Karla','Jimenez',28,12345678,'Alajuela, San Carlos');
+insert into Empleados values(
+3,'Karla','Jimenez',28,12345678,'Alajuela, San Carlos');
+
+
+/*Actualizar datos*/
+update Empleados set nombre = 'Pedro' where id_Empleado = 1;
+
+/*Elimar datos*/
+delete from Empleados where id_Empleado = 2;
